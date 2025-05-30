@@ -1,4 +1,4 @@
-Challenges :
+Challenges : 
 
 1. Installation of spacy and numpy:
 
@@ -12,7 +12,7 @@ Fix:
 - Followed by that I installed a numpy library of the version 1.26.4 as I'm using Python 3.12 and this fulfills the version requirement for thinc (which needs numpy<3.0.0,>=2.0.0).
 - You can utilize either "en" or "en_core_web_sm" for the purpose of this usecase.
 
-======================================================================
+==============================================================================================================================================================
 
 2. Memory Error:
 #(MemoryError: Unable to allocate 739. MiB for an array with shape (2017851, 96) and data type float32)

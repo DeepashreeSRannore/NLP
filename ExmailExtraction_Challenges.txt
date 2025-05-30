@@ -1,0 +1,29 @@
+Challenges :
+
+1. Installation of spacy and numpy:
+
+- During the installation of packages Spacy and numpy I faced issues in handling the compatible versions of them to facilitate the use of language model and email extraction.
+- Initially, I assumed that this might be because of the installation error where I might be trying to download a older version than that is expected.so I tried to use "!pip install --upgrade numpy" commands which again lead to errors. 
+- After several failures, I understood that this is because of the compatibility of version issue between that modules(Spacy and numpy).
+
+Fix:
+
+- To handle the latest dependencies and build logic, I upgraded the pip, setuptool and wheel. 
+- Followed by that I installed a numpy library of the version 1.26.4 as I'm using Python 3.12 and this fulfills the version requirement for thinc (which needs numpy<3.0.0,>=2.0.0).
+- You can utilize either "en" or "en_core_web_sm" for the purpose of this usecase.
+
+======================================================================
+
+2. Memory Error:
+#(MemoryError: Unable to allocate 739. MiB for an array with shape (2017851, 96) and data type float32)
+
+- As the dataset has about ~8.2 million tokes its very difficult to handle the allocation of memory.
+- Though I tried increasing the temporary memory per character to handle ~10000000 text length, This failed when i wanted to text the code multiple times.
+lang_model = spacy.blank("en_core_web_sm")
+lang_model.max_length = 10_000_000  # set higher than your text length
+
+Fix:
+
+- To handle this, The most efficient way that I thought was to process the lines separately.
+- For very large files, process piecewise (line by line) to avoid memory issues.
+- if you have enough RAM, then simply use lang_model.max_length = length of character.
